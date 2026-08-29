@@ -23,7 +23,26 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+     <body className="min-h-full flex flex-col">
+  <nav className="border-b border-gray-200 bg-white">
+    <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <a href="/" className="text-xl font-bold text-gray-900">
+        DIT HUB
+      </a>
+
+      <div className="flex items-center gap-5 text-sm font-medium text-gray-600">
+        <a href="/">Home</a>
+        <a href="/buy-sell">Buy & Sell</a>
+        <a href="/lost-found">Lost & Found</a>
+        <a href="/notes">Notes</a>
+        <a href="/events">Events</a>
+        <a href="/feed">Feed</a>
+      </div>
+    </div>
+  </nav>
+
+  {children}
+</body>
     </html>
   );
 }
