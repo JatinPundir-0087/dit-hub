@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 const features = [
   {
     title: "Buy & Sell",
@@ -31,7 +35,21 @@ const features = [
   },
 ];
 
+const pages = [
+  { name: "Buy & Sell", href: "/buy-sell" },
+  { name: "Lost & Found", href: "/lost-found" },
+  { name: "Notes + PYQs", href: "/notes" },
+  { name: "Events", href: "/events" },
+  { name: "Campus Feed", href: "/feed" },
+];
+
 export default function Home() {
+  const [search, setSearch] = useState("");
+
+  const filteredPages = pages.filter((page) =>
+    page.name.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <main className="mx-auto min-h-screen max-w-6xl px-6 py-16">
       <section className="max-w-3xl">
@@ -49,20 +67,45 @@ export default function Home() {
           and stay connected with campus life.
         </p>
 
-        <div className="mt-8 flex gap-4">
+        <div className="mt-8 flex flex-col gap-4 sm:flex-row">
           <a
-            href="/feed"
-            className="rounded-xl bg-gray-900 px-6 py-3 font-semibold text-white transition hover:bg-gray-700"
+            href="https://www.dituniversity.edu.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-xl bg-gray-900 px-6 py-3 text-center font-semibold text-white transition hover:bg-gray-700"
           >
-            Explore Campus Feed
+            Visit DIT University ↗
           </a>
+        </div>
 
-          <a
-            href="/notes"
-            className="rounded-xl border border-gray-300 px-6 py-3 font-semibold text-gray-900 transition hover:bg-gray-100"
-          >
-            Browse Resources
-          </a>
+        <div className="relative mt-6">
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search DIT HUB pages..."
+            className="w-full rounded-xl border border-gray-300 bg-white px-5 py-3 text-gray-900 outline-none transition placeholder:text-gray-500 focus:border-gray-500"
+          />
+
+          {search && (
+            <div className="absolute z-10 mt-2 w-full overflow-hidden rounded-xl border border-gray-200 bg-white shadow-lg">
+              {filteredPages.length > 0 ? (
+                filteredPages.map((page) => (
+                  <a
+                    key={page.href}
+                    href={page.href}
+                    className="block px-5 py-3 text-gray-900 transition hover:bg-gray-100"
+                  >
+                    {page.name}
+                  </a>
+                ))
+              ) : (
+                <p className="px-5 py-3 text-gray-500">
+                  No page found
+                </p>
+              )}
+            </div>
+          )}
         </div>
       </section>
 

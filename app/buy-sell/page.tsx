@@ -10,11 +10,11 @@ export default function BuySell() {
         </div>
 
         <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <input
-            type="text"
-            placeholder="Search items..."
-            className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 outline-none focus:border-gray-500 sm:max-w-md"
-          />
+         <input
+          type="text"
+           placeholder="Search lost items..."
+           className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-gray-900 placeholder:text-gray-400 outline-none focus:border-gray-500 sm:max-w-md"
+         />
 
           <button className="rounded-xl bg-gray-900 px-6 py-3 font-semibold text-white transition hover:bg-gray-700">
             + Sell an Item

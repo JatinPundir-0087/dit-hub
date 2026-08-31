@@ -16,10 +16,10 @@ export default function Events() {
         {/* Search and Create Button */}
         <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <input
-            type="text"
-            placeholder="Search events..."
-            className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 outline-none focus:border-gray-500 sm:max-w-md"
-          />
+  type="text"
+  placeholder="Search events..."
+  className="w-full max-w-md rounded-xl border border-gray-300 bg-white px-5 py-3 text-gray-900 placeholder:text-gray-400 outline-none transition focus:border-gray-500"
+/>
 
           <button className="rounded-xl bg-gray-900 px-6 py-3 font-semibold text-white transition hover:bg-gray-700">
             + Create Event
